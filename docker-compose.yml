@@ -2,18 +2,33 @@
 version: '3.2'
 
 services:
-
+  app:
+    image: java:8-jre-alpine
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    environment:
+      POSTGRES_URL: jdbc:postgresql://db:5432/xvulb
+      POSTGRES_USER: xvulb
+      POSTGRES_PASS: password
+      SECURITY_PW_STORAGE: Clear
+      SECURITY_XSS_PROTECTION: 'False'
+      SECURITY_PWBRUTEFORCE: 'False'
+      SECURITY_SS_FIXATION: 'True'
+      SECURITY_SQL_INJECTION: 'False'
+      SECURITY_SET_COOKIE: 'False'
+    volumes:
+      - ./XVulB.war:/opt/app.war
+      - ./application.properties:/opt/application.properties
+      - ./wait-for:/wait-for
+    command: ['/wait-for','db:5432', '--','java', '-jar','-Dspring.config.location=/opt/application.properties','/opt/app.war']
   db:
-    image: postgres
+    image: postgres:11.6
     restart: always
     environment:
-      POSTGRES_USER: postgres
+      POSTGRES_DB: xvulb
+      POSTGRES_USER: xvulb
       POSTGRES_PASSWORD: password
-      XVULB_DB_DATABASE: xvulb
-      XVULB_DB_USER: xvulb_app
-      XVULB_DB_PASSWORD: password
     ports:
       - 5432:5432
-    build: 
-      context: .
-      dockerfile: Dockerfile.db
