@@ -37,7 +37,7 @@ Id	| Username |	Password
 
 ## Environment Variables for Security Level Switching
 
-* SECURITY_PW_STORAGE: Clear
+* `SECURITY_PW_STORAGE`: Clear
 
 ```
 # 4 main types to store password in db
@@ -47,7 +47,7 @@ Id	| Username |	Password
 # PBKDF2
 ```
 
-* SECURITY_XSS_PROTECTION: 'False'
+* `SECURITY_XSS_PROTECTION`: 'False'
 
 ```
 # Turn XSS Prevention on or off
@@ -56,7 +56,7 @@ Id	| Username |	Password
 
 ```
 
-* SECURITY_PWBRUTEFORCE: 'False'
+* `SECURITY_PWBRUTEFORCE`: 'False'
 
 ```
 # Turn Password Bruteforce on or off
@@ -64,7 +64,7 @@ Id	| Username |	Password
 # Captcha = protection, using Google Recaptcha to prevent Pw_bruteforce
 ```
 
-* SECURITY_SS_FIXATION: 'False'
+* `SECURITY_SS_FIXATION`: 'False'
 
 ```
 # Turn Session Fixation on or off
@@ -72,7 +72,7 @@ Id	| Username |	Password
 # True = protection, Session Fixation not exploitable
 ```
 
-* SECURITY_SQL_INJECTION: 'False'
+* `SECURITY_SQL_INJECTION`: 'False'
 
 ```
 # Turn SQLi on or off
@@ -80,7 +80,7 @@ Id	| Username |	Password
 # True = protection, SQLi not exploitable
 ```
 
-SECURITY_SET_COOKIE: 'False'
+* `SECURITY_SET_COOKIE`: 'False'
 
 ```
 # Turn Set Secure Cookie on or off
