@@ -35,7 +35,7 @@ Id	| Username |	Password
 * Password stored in clear text
 * Insecure storage of session cookie
 
-## Environment Variables for Security Level Switching
+## Environment Variables for Security
 
 * `SECURITY_PW_STORAGE`: Clear
 
